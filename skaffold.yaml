@@ -1,0 +1,23 @@
+# (ticketing)$ skaffold dev
+
+
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifest:
+      - infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+    - image: sanjeet_pal/auth
+    context: auth
+    docker:
+      dockerfile: Dockerfile
+    sync:
+      manual:
+        - src: 'src/**/*.ts'
+          dest: .
+
+
