@@ -9,6 +9,7 @@
 //$ sudo docker tag 381972a37d97 docker.pkg.github.com/sanjeet123456789/ticketing/auth:latest
 //$ sudo docker push docker.pkg.github.com/sanjeet123456789/ticketing/auth:latest
 //$ sudo docker run docker.pkg.github.com/sanjeet123456789/ticketing/auth:latest
+// url https://github.com/sanjeet123456789/ticketing/auth
 
 
 
@@ -21,6 +22,10 @@ import {json} from 'body-parser';
 
 
 const app=express();
+app.get('/pal/users/profile',(req,res)=>{
+	res.send("hello there");
+
+});
 app.use(json());
 app.listen(3000,()=>{
 	//res.json("hello world")
